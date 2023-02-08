@@ -1,0 +1,93 @@
+*{
+    color: white;
+    background-color: blueviolet;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    box-sizing: border-box;
+}
+
+.container {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+h1 {
+    margin: 30px 0;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#addMember {
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    margin-left: 20px;
+}
+
+#addMember:hover {
+    transform: scale(1.5);
+}
+
+.entry {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* flex-wrap: wrap; */
+    align-items: flex-start;
+    justify-content: space-between;
+    /* gap: 15px; */
+}
+
+.entry:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.entry:nth-of-type(1):hover {
+    box-shadow: none;
+}
+
+.entry h2 {
+    width: 350px;
+    height: 35px;
+}
+
+.entry button{
+    padding: 10px 20px;
+    font-size: 18px;
+    width: 300px;
+    height: 70px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+}
+
+.entry button:hover {
+    background-color: #3e8e41;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.entry button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.entry span {
+    font-size: 24px;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    margin-top: 15px;
+}
