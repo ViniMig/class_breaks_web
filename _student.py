@@ -64,19 +64,13 @@ class Student:
         for day_dict in self.date_list:
             if str(date.today()) in day_dict.values():
                 day_dict["num_breaks"] += 1
-                day_dict["total_break_time"] += new_total
+                day_dict["total_break_time"] += new_total #updates dict first with new total
                 self.today_breaks += 1
-                if self.time_units == 'mins':# test if current total is in minutes
-                    self.today_total_time += int(day_dict["total_break_time"] / 60)
-                elif day_dict["total_break_time"] >= 60:# test if total time associated to student is in minutes
-                    self.today_total_time /= 60
-                    self.today_total_time += day_dict["total_break_time"]
+                if day_dict["total_break_time"] >= 60:# test if current total time associated to student is in minutes
+                    self.today_total_time = int(day_dict["total_break_time"] / 60)
                     self.time_units = 'mins'
-                else:# both are in seconds
-                    self.today_total_time += day_dict["total_break_time"]
-                    if self.today_total_time >= 60:# if the sum of both in seconds is more than or equal to 60
-                        self.today_total_time /= 60
-                        self.time_units = 'mins'
+                else: #the total is only in seconds so we only add the value. units will be in seconds already
+                    self.today_total_time = int(day_dict["total_break_time"])
     
     def get_breaks(self) -> tuple:
         """

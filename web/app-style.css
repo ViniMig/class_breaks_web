@@ -1,8 +1,11 @@
 *{
     color: white;
-    background-color: blueviolet;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-family: 'Ubuntu', sans-serif;
     box-sizing: border-box;
+}
+
+body {
+    background-color: blueviolet;
 }
 
 .container {
@@ -39,14 +42,12 @@ h1 {
     display: flex;
     flex-direction: row;
     width: 100%;
-    /* flex-wrap: wrap; */
     align-items: flex-start;
     justify-content: space-between;
-    /* gap: 15px; */
 }
 
 .entry:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 10px 15px 0 rgba(0,0,0,0.24), 0 10px 40px 0 rgba(0,0,0,0.19);
 }
 
 .entry:nth-of-type(1):hover {
@@ -58,7 +59,7 @@ h1 {
     height: 35px;
 }
 
-.entry button{
+.in-class {
     padding: 10px 20px;
     font-size: 18px;
     width: 300px;
@@ -73,13 +74,41 @@ h1 {
     border-radius: 15px;
 }
 
-.entry button:hover {
+.in-class:hover {
     background-color: #3e8e41;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transform: scale(1.05);
 }
 
-.entry button:active {
+.in-class:active {
   background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.on-break {
+    padding: 10px 20px;
+    font-size: 18px;
+    width: 300px;
+    height: 70px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #b63f1b;
+    border: none;
+    border-radius: 15px;
+}
+
+.on-break:hover {
+    background-color: #812509;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transform: scale(1.05);
+}
+
+.on-break:active {
+  background-color: #812509;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
@@ -91,3 +120,95 @@ h1 {
     text-align: center;
     margin-top: 15px;
 }
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 10px auto;
+    margin-left: 150px;
+    padding: 0;
+    border: 1px solid #888;
+    width: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+
+ /* Modal Header */
+.modal-header {
+  padding: 2px 16px;
+  background-color: blueviolet;
+  color: white;
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+/* Modal Body */
+.modal-body {
+    padding: 2px 16px;
+}
+
+.modal-body label{
+    color: black;
+}
+
+.modal-body button{
+    float: right;
+    padding: 5px 5px;
+    font-size: 14px;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 10px;
+}
+
+.modal-body button:hover {
+    background-color: rgb(168, 100, 231);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transform: scale(1.05);
+}
+
+#new-member-input {
+    border: 0;
+    border-bottom: 1px solid black;
+    margin: 0 5px;
+    color: black;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+} 
