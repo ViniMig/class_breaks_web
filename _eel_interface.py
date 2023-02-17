@@ -50,7 +50,9 @@ class EelInterface:
             self.current_class.add_student(student_to_add)
             #update json file
             self.update_classroom_json()
+            eel.memberAdded(True, member_name, highest_id + 1)
         else:
+            eel.memberAdded(False, member_name, 0)
             print(f"Student {member_name} already exists!")
 
     @eel.expose

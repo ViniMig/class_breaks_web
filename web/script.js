@@ -41,7 +41,6 @@ var container = document.getElementsByClassName("container")[0];
 
 btnAddStd.onclick = function(){
     var new_name = document.getElementById("new-member-input");
-    var entryDiv = document.createElement("div");
 
     //validation
     if (new_name.value == "") {
@@ -50,15 +49,20 @@ btnAddStd.onclick = function(){
     }
     //Add information to classroom model, call Python function
     eel.add_new_member(new_name.value);
+}
 
-    //TODO only execute this part if student was created in the model.
-    //test if student exists already
-
-    //Append new entry to container
-    entryDiv.classList.add("entry");
-    entryDiv.innerHTML = "<button class='in-class'>" + new_name.value + "</button>\n<span>0</span>\n<span>0s</span>";
-    container.appendChild(entryDiv);
-    new_name.value = "";
+eel.expose(memberAdded);
+function memberAdded(isAdded, added_name, btn_id){
+    var entryDiv = document.createElement("div");
+    if (isAdded){
+        //Append new entry to container
+        entryDiv.classList.add("entry");
+        entryDiv.innerHTML = "<button class='in-class' id='" + btn_id + "' onclick=countTime(this.id)>" + added_name + "</button>\n<span>0</span>\n<span>0s</span>";
+        container.appendChild(entryDiv);
+        document.getElementById("new-member-input").value = "";
+    } else {
+        alert("Name '" + added_name + "' already exists!");
+    }
 }
 
 function countTime(btnID){
